@@ -1,0 +1,19 @@
+  
+# This is a basic workflow to thow an error if a pull request targets master
+
+name: No Pull Requests to Master
+
+# Triggers the workflow pull request events but only for the master branch
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  No_Pull_Requests_to_Master:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Run a one-line script
+      run: |
+        echo Pull Requests to master branch are not allowed in this repo
+        exit 1     
