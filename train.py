@@ -1180,9 +1180,7 @@ def create_activation_stats_collectors(model, *phases):
     distiller.utils.assign_layer_fq_names(model)
 
     genCollectors = lambda: missingdict({  # noqa E731
-        "sparsity":      SummaryActivationStatsCollector(model, "sparsity",
-                                                         lambda t:
-                                                         100 * distiller.utils.sparsity(t)),
+        "sparsity":      SummaryActivationStatsCollector(model, "sparsity", lambda t: 100 * distiller.utils.sparsity(t)),
         "l1_channels":   SummaryActivationStatsCollector(model, "l1_channels",
                                                          distiller.utils.activation_channels_l1),
         "apoz_channels": SummaryActivationStatsCollector(model, "apoz_channels",
